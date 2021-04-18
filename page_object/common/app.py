@@ -11,7 +11,6 @@ from appium import webdriver
 from page_object.common.base_page import BasePage
 from page_object.page.main_page import MainPage
 
-
 udid = ["192.168.0.152:5555", "FFKDU17A14004245"]
 
 
@@ -48,3 +47,5 @@ class App(BasePage):
     def goto_main(self) -> MainPage:
         # 进入首页
         return MainPage(self.driver)
+
+

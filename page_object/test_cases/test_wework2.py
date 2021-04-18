@@ -7,7 +7,11 @@
 @time: 2021/4/16 10:00 上午
 @desc:
 """
+import os
+
 from page_object.common.app import App
+from page_object.common.util.base_method import BaseMethod
+import pytest
 
 
 class TestWeWork2():
@@ -23,3 +27,10 @@ class TestWeWork2():
         add_member = goto_address.add_member()  # 跳转添加成员主菜单页面
         add_member_manual = add_member.add_member_manual()  # 手动添加成员，跳转到添加成员页面
         add_contact = add_member_manual.add_contact()  # 添加成员
+
+
+if __name__ == '__main__':
+    report_path = BaseMethod().make_dir("report")
+    pytest.main(['--alluredir', report_path+"result"])  # 执行测试，生成allure测试结果数据
+    # os.system(f'allure generate {report_path}result -o {report_path} --clean')  # 通过测试结果数据生成html报告
+    print('结束')

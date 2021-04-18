@@ -5,7 +5,7 @@
 @contact: 296701193@qq.com
 @file: test_params
 @time: 2021/4/10 5:50 下午
-@desc:
+@desc: 基础的appium结合pytest写测试用例
 """
 
 from appium import webdriver

@@ -9,18 +9,17 @@
 """
 import json
 import logging
-
+import os
 
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from page_object.common.util.black_handle import black_wrapper
+
 from .black import get_black_list
 
 
-
-
-class BasePage():
+class BasePage:
     FIND_ELEMENT = "find_element"
     ACTION = 'action'
     FIND_ELEMENT_ADN_CLICK = "find_element_and_click"

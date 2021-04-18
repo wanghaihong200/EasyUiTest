@@ -8,10 +8,8 @@
 @desc:
 """
 from page_object.common.util.logger import log
-from page_object.common import BasePath
 from page_object.common.util.base_method import BaseMethod
 import allure
-import os
 
 
 def black_wrapper(fun):
@@ -29,10 +27,10 @@ def black_wrapper(fun):
         except Exception as e:
             dir_path = BaseMethod().make_dir("screen_shot_picture")
             screen_picture_path = dir_path + BaseMethod().get_udid() + ".png"
-            base_page.screen_shot(picture_path=screen_picture_path)
+            base_page.screen_shot(picture_path=screen_picture_path)  # 对错误页面进行截图保存
             with open(screen_picture_path, "rb") as f:
                 picture_data = f.read()
-            allure.attach(picture_data, attachment_type=allure.attachment_type.PNG)
+            allure.attach(picture_data, attachment_type=allure.attachment_type.PNG)  # 将错误截图传给allure
             # 遍历黑名单中的元素，进行处理
             for black in base_page.black_list:
                 eles = base_page.find_elements(*black)
