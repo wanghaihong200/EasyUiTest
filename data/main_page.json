@@ -1,0 +1,6 @@
+[
+  {
+    "find_element": "//*[@text='通讯录']",
+    "action": "find_element_and_click"
+  }
+]

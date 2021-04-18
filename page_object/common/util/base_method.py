@@ -24,7 +24,7 @@ class BaseMethod:
         return date
 
     def make_dir(self, dir):
-        dir_path = BasePath + "/" + dir + "/" + self.get_date() + "/"
+        dir_path = BasePath + dir + "/" + self.get_date() + "/"
         if not os.path.exists(dir_path):
             # 如果目录不存在，则创建目录
             os.makedirs(dir_path)

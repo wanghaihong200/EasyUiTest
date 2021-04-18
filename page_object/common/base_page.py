@@ -100,11 +100,13 @@ class BasePage:
         return result
 
     def load(self, json_path):
-        data = json.load(json_path)
+        # 解析json数据，转化为对应的测试代码， 关键字驱动
+        with open(json_path, mode="r") as f:
+            data = json.load(f)
         for step in data:
-            xpath_expr = step.get(self.FIND_ELEMENT)
-            action = step.get(self.ACTION)
-            if action == self.find_element_and_click:
+            xpath_expr = step[self.FIND_ELEMENT]
+            action = step[self.ACTION]
+            if action == self.FIND_ELEMENT_ADN_CLICK:
                 self.find_element_and_click(MobileBy.XPATH, xpath_expr)
             elif action == self.SEND_KEYS:
                 content = step.get(self.CONTENT)

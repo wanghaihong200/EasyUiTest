@@ -11,6 +11,7 @@ from appium.webdriver.common.mobileby import MobileBy
 
 from page_object.common.base_page import BasePage
 from page_object.page.address_list_page import AddressListPage
+from page_object.common import BasePath
 
 
 class MainPage(BasePage):
@@ -19,12 +20,13 @@ class MainPage(BasePage):
     """
     def __init__(self, driver):
         super(MainPage, self).__init__(driver)
-        self.el_address = ('xpath', "//*[@text='通讯录']")
+        self.el_address = (MobileBy.XPATH, "//*[@text='通讯录']")
 
     def goto_address(self) -> AddressListPage:
         """
         跳转到通讯录页面
         :return:
         """
-        self.find_element_and_click(*self.el_address)
+        # self.find_element_and_click(*self.el_address)
+        self.load(BasePath+"data/main_page.json")
         return AddressListPage(self.driver)
