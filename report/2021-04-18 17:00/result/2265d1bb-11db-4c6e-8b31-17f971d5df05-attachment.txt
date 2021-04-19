@@ -1,0 +1,11 @@
+黑名单: 
+[('xpath', "//*[@text='完整输入']"), ('xpath', "//*[@text='海之蓝']")]
+黑名单: 
+[('xpath', "//*[@text='完整输入']"), ('xpath', "//*[@text='海之蓝']")]
+黑名单: 
+[('xpath', "//*[@text='完整输入']"), ('xpath', "//*[@text='海之蓝']")]
+new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text("添加成员").instance(0));
+黑名单: 
+[('xpath', "//*[@text='完整输入']"), ('xpath', "//*[@text='海之蓝']")]
+黑名单: 
+[('xpath', "//*[@text='完整输入']"), ('xpath', "//*[@text='海之蓝']")]

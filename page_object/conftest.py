@@ -25,11 +25,11 @@ def record_vedio():
     print(screen_shot_path)
     cmd = f'scrcpy --record {screen_shot_path}'
     print(cmd)
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)  # 新开一个子进程，进行手机视频录制
     print(p)
     yield
     print('Press Ctrl+C')
     p.send_signal(signal.SIGINT)
-    os.kill(p.pid, signal.SIGINT)
+    os.kill(p.pid, signal.SIGINT)  # 根据子进程的pid,关闭子进程
 
 

@@ -1,0 +1,61 @@
+{
+  "name": "test_contact",
+  "status": "passed",
+  "attachments": [
+    {
+      "source": "7876d8dc-c1dd-4a53-9d75-098e4f57547c-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "log",
+      "source": "10be4118-6ae4-4150-b0b6-d908cc36d607-attachment.txt",
+      "type": "text/plain"
+    },
+    {
+      "name": "stdout",
+      "source": "2265d1bb-11db-4c6e-8b31-17f971d5df05-attachment.txt",
+      "type": "text/plain"
+    },
+    {
+      "name": "stderr",
+      "source": "d196cfaa-0351-4c08-b858-c0b3f1c6c712-attachment.txt",
+      "type": "text/plain"
+    }
+  ],
+  "start": 1618737208805,
+  "stop": 1618737242376,
+  "uuid": "b8d6e132-6c0d-44c2-838e-ad7d4156a315",
+  "historyId": "60b78195f59ae49ea15e7b219f4bfaf7",
+  "testCaseId": "265cff36442bbeddc7ed1033cfc2b967",
+  "fullName": "test_wework2.TestWeWork2#test_contact",
+  "labels": [
+    {
+      "name": "suite",
+      "value": "test_wework2"
+    },
+    {
+      "name": "subSuite",
+      "value": "TestWeWork2"
+    },
+    {
+      "name": "host",
+      "value": "wanghaihongdeMacBook-Air.local"
+    },
+    {
+      "name": "thread",
+      "value": "79530-MainThread"
+    },
+    {
+      "name": "framework",
+      "value": "pytest"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    },
+    {
+      "name": "package",
+      "value": "test_wework2"
+    }
+  ]
+}

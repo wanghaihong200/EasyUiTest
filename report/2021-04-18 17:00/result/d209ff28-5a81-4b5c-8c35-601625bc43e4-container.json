@@ -1,0 +1,21 @@
+{
+  "uuid": "182984f4-5259-4e7a-b848-63eccb491952",
+  "children": [
+    "6990fb95-cd66-4b11-968d-5e12d0675bdc",
+    "a9ed0ba0-a16a-470c-aeba-0c21094a6c6b"
+  ],
+  "befores": [
+    {
+      "name": "xunit_setup_class_fixture_TestWeWork2",
+      "status": "broken",
+      "statusDetails": {
+        "message": "selenium.common.exceptions.WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20250ms.\n\n",
+        "trace": "  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/_pytest/fixtures.py\", line 1126, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/_pytest/fixtures.py\", line 925, in call_fixture_func\n    fixture_result = next(generator)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/_pytest/python.py\", line 811, in xunit_setup_class_fixture\n    _call_with_optional_argument(func, self.obj)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/_pytest/python.py\", line 739, in _call_with_optional_argument\n    func(arg)\n  File \"/Users/wanghaihong/py/EasyUiTest/page_object/test_cases/test_wework2.py\", line 20, in setup_class\n    self.app = App()\n  File \"/Users/wanghaihong/py/EasyUiTest/page_object/common/app.py\", line 33, in __init__\n    self.driver = webdriver.Remote(\"http://127.0.0.1:4723/wd/hub\", desired_capabilities=self.desire_app)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/appium/webdriver/webdriver.py\", line 155, in __init__\n    super().__init__(\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py\", line 157, in __init__\n    self.start_session(capabilities, browser_profile)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/appium/webdriver/webdriver.py\", line 225, in start_session\n    response = self.execute(RemoteCommand.NEW_SESSION, parameters)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n  File \"/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n"
+      },
+      "start": 1618738996579,
+      "stop": 1618739017022
+    }
+  ],
+  "start": 1618738996579,
+  "stop": 1618739017623
+}
