@@ -9,8 +9,8 @@
 """
 import json
 import logging
-import os
 
+from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -19,11 +19,37 @@ from page_object.common.constants.key_words_constant import *
 
 from .black import get_black_list
 
+udid = ["192.168.0.152:5555", "FFKDU17A14004245"]
+
 
 class BasePage:
-    def __init__(self, driver: WebDriver = None):
-        self.driver = driver
+    def __init__(self, udid=udid[1], appPackage="com.tencent.wework",
+                 appActivity=".launch.LaunchSplashActivity"):
+
         self.black_list = get_black_list()
+
+        self.desire_app = {
+            "platformName": "Android",
+            "platformVersion": '9.0',
+            "deviceName": "honor9",
+            "udid": udid,
+            "automationName": "UiAutomator2",
+            "noReset": "True",  # 保留app缓存
+            "appPackage": appPackage,
+            "appActivity": appActivity
+        }
+        self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities=self.desire_app)
+        self.driver.implicitly_wait(5)
+
+
+    def restart(self):
+        # 重启app
+        self.driver.close_app()
+        self.driver.launch_app()
+
+    def stop(self):
+        # 停止app
+        self.driver.quit()
 
     @black_wrapper
     def find_element(self, by, locator):

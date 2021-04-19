@@ -14,7 +14,7 @@ from page_object.page.main_page import MainPage
 udid = ["192.168.0.152:5555", "FFKDU17A14004245"]
 
 
-class App(BasePage):
+class App():
     def __init__(self, udid=udid[1], appPackage="com.tencent.wework",
                  appActivity=".launch.LaunchSplashActivity"):
         # 启动app

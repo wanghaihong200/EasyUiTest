@@ -9,20 +9,21 @@
 """
 import os
 
-from page_object.common.app import App
+from page_object.common.base_page import BasePage
 from page_object.common.util.base_method import BaseMethod
+from page_object.page.main_page import MainPage
 import pytest
 
 
 class TestWeWork2:
     def setup_class(self):
-        self.app = App()
+        self.app = BasePage()
 
     def teardown_class(self):
         self.app.stop()
 
     def test_contact(self, record_vedio):
-        goto_main = self.app.goto_main()  # 跳转首页
+        goto_main = MainPage(self.app)  # 跳转首页
         goto_address = goto_main.goto_address()  # 跳转通讯录页面
         add_member = goto_address.add_member()  # 跳转添加成员主菜单页面
         add_member_manual = add_member.add_member_manual()  # 手动添加成员，跳转到添加成员页面

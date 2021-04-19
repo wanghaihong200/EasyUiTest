@@ -83,3 +83,31 @@ args: (<page_object.page.contact_add_page.ContactAddPage object at 0x7fb29f61ddc
 args: (<page_object.page.contact_add_page.ContactAddPage object at 0x7fb29f61ddc0>, 'xpath', "//*[@text='保存']") kwargs: {}
 [2021-04-19 17:08:19,608] black_handle.py:25:run: start find: 
 args: (<page_object.page.contact_add_page.ContactAddPage object at 0x7fb29f61ddc0>, 'xpath', "//*[@text='保存']") kwargs: {}
+[2021-04-19 22:33:28,461] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='通讯录']") kwargs: {}
+[2021-04-19 22:33:28,463] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='通讯录']") kwargs: {}
+[2021-04-19 22:33:30,744] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>,) kwargs: {'text': '添加成员'}
+[2021-04-19 22:33:34,480] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='手动输入添加']") kwargs: {}
+[2021-04-19 22:33:34,480] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='手动输入添加']") kwargs: {}
+[2021-04-19 22:33:36,011] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='快速输入']") kwargs: {}
+[2021-04-19 22:33:37,530] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[contains(@text, '姓名')]/..//*[@text='必填']") kwargs: {}
+[2021-04-19 22:33:38,401] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[contains(@text, '性别')]/..//*[@text='男']") kwargs: {}
+[2021-04-19 22:33:38,402] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[contains(@text, '性别')]/..//*[@text='男']") kwargs: {}
+[2021-04-19 22:33:39,226] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='女']") kwargs: {}
+[2021-04-19 22:33:39,226] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='女']") kwargs: {}
+[2021-04-19 22:33:40,092] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='手机号']") kwargs: {}
+[2021-04-19 22:33:50,338] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='保存']") kwargs: {}
+[2021-04-19 22:33:50,340] black_handle.py:25:run: start find: 
+args: (<page_object.common.base_page.BasePage object at 0x7fc4b54da130>, 'xpath', "//*[@text='保存']") kwargs: {}
