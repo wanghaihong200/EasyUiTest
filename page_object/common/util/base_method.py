@@ -16,12 +16,12 @@ from page_object.common import BasePath
 class BaseMethod:
     def get_udid(self):
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        udid = now + "__" + str(random.randint(0, 100))
+        udid = now + "__" + str(random.randint(0, 1000))
         return udid
 
     def get_date(self):
-        date = datetime.datetime.now().strftime("%Y-%m-%d %H") + ":00"
-        return date
+        now = datetime.datetime.now().strftime("%Y-%m-%d")
+        return now
 
     def make_dir(self, dir):
         dir_path = BasePath + dir + "/" + self.get_date() + "/"
