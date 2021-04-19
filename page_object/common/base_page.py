@@ -15,17 +15,12 @@ from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from page_object.common.util.black_handle import black_wrapper
+from page_object.common.constants.key_words_constant import *
 
 from .black import get_black_list
 
 
 class BasePage:
-    FIND_ELEMENT = "find_element"
-    ACTION = 'action'
-    FIND_ELEMENT_ADN_CLICK = "find_element_and_click"
-    SEND_KEYS = "send"
-    CONTENT = 'content'
-
     def __init__(self, driver: WebDriver = None):
         self.driver = driver
         self.black_list = get_black_list()
@@ -104,12 +99,12 @@ class BasePage:
         with open(json_path, mode="r") as f:
             data = json.load(f)
         for step in data:
-            xpath_expr = step[self.FIND_ELEMENT]
-            action = step[self.ACTION]
-            if action == self.FIND_ELEMENT_ADN_CLICK:
+            xpath_expr = step[FIND_ELEMENT]
+            action = step[ACTION]
+            if action == FIND_ELEMENT_AND_CLICK:
                 self.find_element_and_click(MobileBy.XPATH, xpath_expr)
-            elif action == self.SEND_KEYS:
-                content = step.get(self.CONTENT)
+            elif action == SEND_KEYS:
+                content = step.get(CONTENT)
                 self.send(MobileBy.XPATH, xpath_expr, content)
 
     def screen_shot(self, picture_path):

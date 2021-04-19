@@ -11,7 +11,6 @@ import os
 
 from page_object.common.app import App
 from page_object.common.util.base_method import BaseMethod
-from page_object.common import BasePath
 import pytest
 
 
