@@ -7,4 +7,4 @@
 6. app页面元素定位可以使用 alibaba开源的 web-editor, 该工具相当于appium-desktop定位的web版，
    但是更方便易用，启动界面如下，更详细的使用请百度。
    
-![img.png](img.png)
+![img_1.png](img_1.png)
