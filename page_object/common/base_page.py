@@ -135,5 +135,3 @@ class BasePage:
 
     def screen_shot(self, picture_path):
         self.driver.save_screenshot(picture_path)
-
-
