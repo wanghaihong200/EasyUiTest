@@ -8,7 +8,6 @@
 @desc:
 """
 import os
-
 from page_object.common.base_page import BasePage
 from page_object.common.util.base_method import BaseMethod
 from page_object.page.main_page import MainPage
