@@ -8,3 +8,11 @@
    但是更方便易用，启动界面如下，更详细的使用请百度。
    
 ![img_1.png](img_1.png)
+
+
+运行：
+依赖 python3.8
+配置文件 config/appium_config.json
+
+运行命令：
+pytest -sv page_object/test_cases --tc-file config/appium_config.json --tc-format json

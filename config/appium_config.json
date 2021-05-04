@@ -1,0 +1,13 @@
+{
+  "desired_caps": {
+    "platformName": "Android",
+    "platformVersion": "9.0",
+    "deviceName": "honor9",
+    "udid": "",
+    "automationName": "UiAutomator2",
+    "noReset": "True",
+    "appPackage": "",
+    "appActivity": ""
+  },
+  "appium_server_url": "http://127.0.0.1:4723/wd/hub"
+}

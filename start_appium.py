@@ -15,12 +15,13 @@ import subprocess
 def start_appium():
     # 先杀掉appium的进程
 
-    subprocess.Popen('taskkill /im node.exe /t /f',shell=True)
+    subprocess.Popen('taskkill /im node.exe /t /f', shell=True)
 
-    time.sleep(1)
+    # time.sleep(1)
+    #
+    # appium_log=os.path.join(APP_HOME,'log')+os.sep+'appium.log'
+    #
+    # subprocess.Popen('appium -g %s'%appium_log,shell=True)
+    #
+    # time.sleep(3)
 
-    appium_log=os.path.join(APP_HOME,'log')+os.sep+'appium.log'
-
-    subprocess.Popen('appium -g %s'%appium_log,shell=True)
-
-    time.sleep(3)

@@ -16,6 +16,7 @@ from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from page_object.common.util.black_handle import black_wrapper
 from page_object.common.constants.key_words_constant import *
+from pytest_testconfig import config
 
 from .black import get_black_list
 
@@ -28,17 +29,11 @@ class BasePage:
 
         self.black_list = get_black_list()
 
-        self.desire_app = {
-            "platformName": "Android",
-            "platformVersion": '9.0',
-            "deviceName": "honor9",
-            "udid": udid,
-            "automationName": "UiAutomator2",
-            "noReset": "True",  # 保留app缓存
-            "appPackage": appPackage,
-            "appActivity": appActivity
-        }
-        self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities=self.desire_app)
+        self.desire_app = config['desired_caps']
+        self.desire_app["udid"] = udid
+        self.desire_app["appPackage"] = appPackage
+        self.desire_app["appActivity"] = appActivity
+        self.driver = webdriver.Remote(config["appium_server_url"], desired_capabilities=self.desire_app)
         self.driver.implicitly_wait(5)
 
 
