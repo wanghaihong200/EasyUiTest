@@ -142,3 +142,4 @@ cython_debug/
 /log/
 /screen_shot_picture/
 /report/
+.idea/

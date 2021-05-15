@@ -1,0 +1,79 @@
+pipeline {
+    agent {
+        label 'master'
+    }
+
+    stages {
+        stage('安卓程序源码同步') {
+            steps {
+                sh 'mkdir -p AndroidSampleApp'
+                dir("AndroidSampleApp"){
+                    git branch:'master',
+                    url:'https://gitee.com/wanghaihong200/AndroidSampleApp.git'
+                }
+            }
+        }
+
+        stage('安卓编译打包') {
+            steps {
+                sh '''
+                    cd AndroidSampleApp
+                    sh gradlew clean assembleDebug
+                    sh ls
+                   '''
+            }
+        }
+
+        stage('安卓部署') {
+            steps {
+                sh '''
+                    cd AndroidSampleApp
+                    apk = app/build/outputs/apk/debug/app-debug.apk
+                    {
+                        adb uninstall com.appsflyer.androidsampleapp  # 卸载现有的app
+                    } || {
+                        echo "手机中没有安装 com.appsflyer.androidsampleapp "
+                    }
+                    sleep 5
+
+                    adb install $apk  # 安装app
+                   '''
+            }
+        }
+
+        stage('自动测试程序源码同步') {
+            steps {
+                sh 'mkdir -p EasyUiTest'
+                dir('EasyUiTest'){
+                    git branch:'master',
+                    url:'https://gitee.com/wanghaihong200/EasyUiTest.git'
+                }
+            }
+        }
+
+        stage('运行自动化测试') {
+            steps {
+                sh '''
+                    nohup appium --log-timestamp --local-timezone --log appium.log 2>&1&
+                    cd EasyUiTest
+                    ls
+                    pip3 install -r requirements.txt  # 安装Python依赖库
+                    # pytest  读取json配置文件，运行测试用例
+                    pytest -sv page_object/test_cases --tc-file config/appium_config.json --tc-format json
+                   '''
+            }
+        }
+    }
+
+    post {
+        success {
+            archiveArtifacts artifacts: 'AndroidSampleApp/app/build/outputs/apk/debug/app-debug.apk'
+        }
+
+        always {
+            emailext body: '$DEFAULT_CONTENT',
+                     recipientProviders: [[$class: 'RequesterRecipientProvider']],
+                     subject: '$DEFAULT_SUBJECT'
+        }
+    }
+}

@@ -6,7 +6,8 @@
 5. 接触UI自动化测试3年多，写这个算是对 个人工作中 UI自动化测试的一个总结。
 6. app页面元素定位可以使用 alibaba开源的 web-editor, 该工具相当于appium-desktop定位的web版，
    但是更方便易用，启动界面如下，更详细的使用请百度。
-   
+7. JenkinsFile: pipeline执行 拉取安卓app源码，打包编译生成android app；拉取ui自动化源码，执行自动化测试
+
 ![img_1.png](img_1.png)
 
 
@@ -16,3 +17,5 @@
 
 运行命令：
 pytest -sv page_object/test_cases --tc-file config/appium_config.json --tc-format json
+
+
