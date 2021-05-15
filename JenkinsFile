@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('安卓程序源码同步') {
             steps {
-                sh 'mkdir -p AndroidSampleApp'  # mkdir -p 递归创建，如果文件夹已创建则忽略
+                // mkdir -p 递归创建，如果文件夹已创建则忽略
+                sh 'mkdir -p AndroidSampleApp'
                 dir("AndroidSampleApp"){
                     git branch:'master',
                     url:'https://gitee.com/wanghaihong200/AndroidSampleApp.git'
