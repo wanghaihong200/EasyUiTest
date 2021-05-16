@@ -1,0 +1,91 @@
+pipeline {
+    // 优化pipeline,部分stage进行并行执行，提高流水线效率
+    agent {
+        label 'master'
+    }
+
+    stages {
+        stage('源码同步') {
+            parallel {
+                stage('安卓app源码同步'){
+                    steps {
+                        // mkdir -p 递归创建，如果文件夹已创建则忽略
+                        sh 'mkdir -p AndroidSampleApp'
+                        dir("AndroidSampleApp"){
+                            git branch:'master',
+                            url:'https://gitee.com/wanghaihong200/AndroidSampleApp.git'
+                        }
+                    }
+                }
+
+                stage('自动测试程序源码同步') {
+                    steps {
+                        sh 'mkdir -p EasyUiTest'
+                        dir('EasyUiTest'){
+                            git branch:'master',
+                            url:'https://gitee.com/wanghaihong200/EasyUiTest.git'
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('安卓编译打包') {
+            steps {
+                sh '''
+                    . ~/.bash_profile
+                    cd AndroidSampleApp
+                    sh gradlew clean assembleDebug
+                   '''
+            }
+        }
+
+        stage('安卓app部署') {
+            steps {
+                sh '''
+                    . ~/.bash_profile
+                    cd AndroidSampleApp
+                    apk=app/build/outputs/apk/debug/app-debug.apk
+                    {
+                        # 卸载现有的app
+                        adb uninstall com.appsflyer.androidsampleapp
+                    } || {
+                        echo '手机中没有安装 com.appsflyer.androidsampleapp'
+                    }
+                    sleep 5
+                    # 安装app
+                    adb install $apk
+                   '''
+            }
+        }
+
+
+
+        stage('运行自动化测试') {
+            steps {
+                sh '''
+                    . ~/.bash_profile
+                    nohup appium --log-timestamp --local-timezone --log appium.log 2>&1&
+                    cd EasyUiTest
+                    ls
+                    # 安装Python依赖库
+                    pip3 install -r requirements.txt
+                    # pytest  读取json配置文件，运行测试用例
+                    pytest -sv page_object/test_cases --tc-file config/appium_config.json --tc-format json
+                   '''
+            }
+        }
+    }
+
+    post {
+        success {
+            archiveArtifacts artifacts: 'AndroidSampleApp/app/build/outputs/apk/debug/app-debug.apk'
+        }
+
+        always {
+            emailext body: '$DEFAULT_CONTENT',
+                     recipientProviders: [[$class: 'RequesterRecipientProvider']],
+                     subject: '$DEFAULT_SUBJECT'
+        }
+    }
+}
